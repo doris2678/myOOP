@@ -23,6 +23,15 @@ function q($sql)
     return $pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
 }
 
+function q_login($sql)
+{
+    $dsn = "mysql:host=localhost;dbname=foodie;charset=utf8";
+    $pdo = new PDO($dsn, 'root', '');
+    // echo $sql;
+    return $pdo->query($sql)->fetchColumn();
+}
+
+
 /**
  * DB類別
  * 用於簡化資料庫操作
@@ -196,3 +205,5 @@ $Members = new DB('members');
      'birthday' => '2000/1/5', 
       ]);
  */
+
+ //dd(q_login("select count(*) from members where id=1"));
