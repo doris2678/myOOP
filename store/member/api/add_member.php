@@ -13,4 +13,8 @@ $sql = "insert into members(name,acc,pw,birthday,email)
                '{$_POST['email']}')";
                
 $pdo->exec($sql);
+
+
+
+
 header("location: ../index.php");

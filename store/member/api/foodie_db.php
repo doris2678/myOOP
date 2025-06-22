@@ -18,7 +18,7 @@ $sql: 欲執行的SQL語法 (string)
 */
 function q($sql)
 {
-    $dsn = "mysql:host=localhost;dbname=store;charset=utf8";
+    $dsn = "mysql:host=localhost;dbname=foodie;charset=utf8";
     $pdo = new PDO($dsn, 'root', '');
     return $pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
 }
@@ -35,7 +35,7 @@ function q($sql)
 class DB
 {
     private $pdo;
-    private $dsn = "mysql:host=localhost;dbname=store;charset=utf8";
+    private $dsn = "mysql:host=localhost;dbname=foodie;charset=utf8";
     private $table;
 
     public function __construct($table)
@@ -171,29 +171,28 @@ $array: 欲轉換的條件或資料陣列 (array)
     }
 }
 
-$Item = new DB('items');
-$Sales = new DB('sales');
-/* dd($Item->all(' where id=1'));
-dd($Item->all(
+$Members = new DB('members');
+
+// dd($Members->all(' where id=2'));
+/* dd($Members->all(
     [
-        'id' => 4,
-        'cost' => 20
-    ])); */
+        'id' => 2,        
+    ]));  */
 
-//dd($Item->find(['id'=>4]));
-//dd($Item->find(4));
+// dd($Members->find(['id'=>2]));
+// dd($Members->find(2));
 
-/*  $Item->save([
-    'id' => 1,
-    'cost' => 15,
-    'stock' => 30 
-     ]); */
+  /* $Members->save([
+    'id' => 2,
+    'name' => 'doris002',
+     ]);  */
 
 
- /*  $Item->save([
-     'name' => "燒餅油條",
-     'cost' => 20,
-     'stock' => 50, 
-     'price' => 45, 
+ /*  $Members->save([
+     'acc' => "doris10",
+     'pw' => '1234',
+     'name' => 'doris010', 
+     'email' => 'doris010@test.com', 
+     'birthday' => '2000/1/5', 
       ]);
  */
